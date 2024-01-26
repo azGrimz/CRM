@@ -3,7 +3,12 @@ package com.example.crm.Repository;
 import com.example.crm.Model.Funcionario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface LoginFuncRepository extends JpaRepository<Funcionario, Long> {
+import java.util.Optional;
+
+public interface LoginFuncRepository extends JpaRepository<Funcionario, String> {
+
+    Optional<Funcionario>  findByNameAndPassword(String func_name,String func_password);
+
     /**
      * Método que retorna uma lista de clientes fazendo a busca pelo nome
      passado como parâmetro.

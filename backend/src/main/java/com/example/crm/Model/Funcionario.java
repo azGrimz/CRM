@@ -13,11 +13,14 @@ public class Funcionario {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private @Getter @Setter Long func_id;
+    @Column(name="func_id")
+    private Long id;
+    @Column(name="func_name")
+    private String name;
 
-    private @Getter @Setter String func_name;
+    @Column(name="func_password")
+    private String password;
+    @Column(name="func_email")
+    private  String email;
 
-    private @Getter @Setter String func_password;
-
-    private @Getter @Setter String func_email;
 }

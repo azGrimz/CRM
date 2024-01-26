@@ -1,26 +1,26 @@
 <div class="container-fluid">
   <div class="card">
     <header>
-      <span>CRM - MANEGEMENT</span>
+      <span>CRM - GERENCIAMENTO</span>
     </header>
-    <form >
+    <form [formGroup]="loginForm" >
         <div class="inputContent">
-          <label>Username</label>
+          <label>Usuário</label>
           <div class="input">
             <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home" class="icon"></mat-icon>
-            <input type="text" placeholder="username@gmail.com">
+            <input type="text" formControlName="login" placeholder="username@gmail.com">
           </div>
         </div>
         <br>
         <div class="inputContent">
-          <label>Username</label>
+          <label>Senha</label>
           <div class="input">
             <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="lock" class="icon"></mat-icon>
-            <input type="text" placeholder="username@gmail.com">
+            <input type="password"  formControlName="password" placeholder="*****">
           </div>
         </div>
         <br>
-        <button>Entrar</button>
+        <button (click)="onSubmit()">Entrar</button>
     </form>
     <footer>
       <span>Cadastre-se</span>

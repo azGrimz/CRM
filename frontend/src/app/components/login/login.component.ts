@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login-auth.service';
+import { HomeScreenComponent } from '../../pages/home-screen/home-screen.component';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,7 @@ export class LoginComponent {
     private authService: LoginService
   ) {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      login: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
@@ -43,5 +44,24 @@ export class LoginComponent {
     this.error = '';
   }
 
+  onSubmit() {
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    this.authService
+      .login(this.loginForm.value)
+      .pipe()
+      .subscribe({
+        next: () => {
+          this.router.navigate(["homescreen"])
+        },
+        error: (error) => {
+          if (error.status === 401) {
+            this.error = 'Usuário ou senha inválidos'
+          }
+        },
+      });
+  }
 
 }
