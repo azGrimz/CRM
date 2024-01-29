@@ -37,6 +37,6 @@ export class HomeScreenComponent {
     //this.router.navigate(['courses/dialog']);
     this.matDialog.open(ModalAddContainerComponent,{
       width:'300px',
-    });
+    }).beforeClosed().subscribe(() => this.getCourses());
   }
 }
