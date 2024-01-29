@@ -1,1 +1,80 @@
-<p>home-screen works!</p>
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="card">
+    <mat-toolbar class="header-table">
+      <span>Containers</span>
+      <button class="newContainer" mat-raised-button color="primary" (click)="openModelAdd()">Novo</button>
+    </mat-toolbar>
+
+    <div *ngIf="containers$ | async as containers; else loading">
+      <table mat-table [dataSource]="containers" class="mat-elevation-z8">
+
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Numero </th>
+          <td mat-cell *matCellDef="let containers"> {{containers.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cliente">
+          <th mat-header-cell *matHeaderCellDef> Cliente </th>
+          <td mat-cell *matCellDef="let containers"> {{containers.cliente}} </td>
+        </ng-container>
+
+        <!-- Categoria Column -->
+        <ng-container matColumnDef="identificacao">
+          <th mat-header-cell *matHeaderCellDef> Categoria </th>
+          <td mat-cell *matCellDef="let containers"> {{containers.identificacao}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tipo">
+          <th mat-header-cell *matHeaderCellDef> Tipo </th>
+          <td mat-cell *matCellDef="let containers"> {{containers.tipo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let containers"> {{containers.status}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="categoria">
+          <th mat-header-cell *matHeaderCellDef> Categoria </th>
+          <td mat-cell *matCellDef="let containers"> {{containers.categoria}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th  mat-header-cell *matHeaderCellDef>
+            Ações
+          </th>
+          <td mat-cell *matCellDef="let containers">
+            <button mat-icon-button color="primary"aria-label="Example icon button with a home icon">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" aria-label="Example icon button with a menu icon">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+
+
+    </div>
+
+    <ng-template #loading>
+      <div class="d-flex justify-content-center">
+        <div class="loading-content">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+
+      </div>
+    </ng-template>
+
+  </div>
+
+
+</div>

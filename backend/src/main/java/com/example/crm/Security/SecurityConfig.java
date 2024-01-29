@@ -11,7 +11,9 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
     private static final String[] WHITE_LIST = {
-            "/api/login"
+            "/api/login",
+            "/containerAPI/listContainers",
+            "/containerAPI/newContainer"
     };
 
 

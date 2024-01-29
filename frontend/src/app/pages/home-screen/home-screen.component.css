@@ -1,0 +1,20 @@
+.container-fluid{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card
+{
+  width: 70%;
+  top:60px;
+}
+
+
+table{
+  width: 100%;
+}
+
+
+.newContainer{
+  left: 85%;
+}
