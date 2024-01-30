@@ -22,6 +22,7 @@ import { CrmRouting } from './crm-routing.module';
 import { HomeScreenComponent } from '../pages/home-screen/home-screen.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { ModalAddContainerComponent } from '../components/modal-add-container/modal-add-container.component';
+import { EditContainerComponent } from '../components/modals/edit-container/edit-container.component';
 
 
 
@@ -30,7 +31,8 @@ import { ModalAddContainerComponent } from '../components/modal-add-container/mo
     LoginComponent,
     HomeScreenComponent,
     HeaderComponent,
-    ModalAddContainerComponent
+    ModalAddContainerComponent,
+    EditContainerComponent
   ],
   imports: [
     CommonModule,

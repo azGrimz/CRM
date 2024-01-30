@@ -13,7 +13,9 @@ public class SecurityConfig {
     private static final String[] WHITE_LIST = {
             "/api/login",
             "/containerAPI/listContainers",
-            "/containerAPI/newContainer"
+            "/containerAPI/newContainer",
+            "/containerAPI/editContainer/",
+            "/containerAPI/deleteContainer/"
     };
 
 

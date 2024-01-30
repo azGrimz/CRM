@@ -42,7 +42,7 @@ public class ContainerController  {
         }
     }
 
-    @DeleteMapping(value="delete/{id}")
+    @DeleteMapping(value="/deleteContainer/{id}")
     public ResponseEntity<Boolean> deleteContainer(@PathVariable("id")Long id){
         containerRepository.deleteById(id);
         return ResponseEntity.ok(!(containerRepository.findById(id)!=null));

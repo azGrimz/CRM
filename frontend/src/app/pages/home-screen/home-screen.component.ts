@@ -5,6 +5,9 @@ import { Container } from '../../models/Container';
 import { ContainerService } from '../../services/container.service';
 import { ModalAddContainerComponent } from '../../components/modal-add-container/modal-add-container.component';
 import { MatDialog } from '@angular/material/dialog';
+import { EditContainerComponent } from '../../components/modals/edit-container/edit-container.component';
+
+
 @Component({
   selector: 'app-home-screen',
   templateUrl: './home-screen.component.html',
@@ -39,4 +42,16 @@ export class HomeScreenComponent {
       width:'300px',
     }).beforeClosed().subscribe(() => this.getCourses());
   }
+
+  editContainer(container: Container){
+    this.matDialog.open(EditContainerComponent,{
+      width:'300px',
+      data: container
+    }).beforeClosed().subscribe(() => this.getCourses());
+  }
+
+
+  deleteContainer(id: Number){
+    this.containerService.delete(id).subscribe(result => result,error => error);
+   }
 }
