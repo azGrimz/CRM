@@ -9,7 +9,6 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "containers")
 public class Container {
 
     @Id
@@ -32,6 +31,6 @@ public class Container {
     @Column(name="container_categoria")
     private @Setter @Getter String categoria;
 
-    @OneToMany
-    private List<Movimentacao> Movimentacao;
+    @OneToMany(mappedBy = "container",targetEntity =Movimentacao.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL )
+    private List<Movimentacao> container;
 }
