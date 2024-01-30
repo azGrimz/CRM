@@ -17,6 +17,7 @@ export class EditContainerComponent {
     private snackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data: any){
     this.form = this.formBuilder.group({
+      id:[data.id,Validators.required],
       cliente:[data.cliente,Validators.required],
       identificacao:[data.identificacao,Validators.required],
       tipo:[data.tipo,Validators.required],
@@ -26,7 +27,7 @@ export class EditContainerComponent {
   }
 
   onUpdate(){
-   this.service.save(this.form.value)
+   this.service.edit(this.form.value)
    .subscribe(result => this.onSucess(),error => this.onError());
   }
 

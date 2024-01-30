@@ -11,7 +11,7 @@ export class ContainerService {
 
   private readonly listContainer = 'http://localhost:8081/containerAPI/listContainers'
   private readonly newContainer = 'http://localhost:8081/containerAPI/newContainer'
-  private readonly editContainer = 'http://localhost:8081/containerAPI/editContainer/'
+  private readonly editContainer = 'http://localhost:8081/containerAPI/editContainer'
   private readonly deleteContainer = 'http://localhost:8081/containerAPI/deleteContainer/'
   constructor(private http: HttpClient) { }
 
@@ -29,10 +29,13 @@ export class ContainerService {
     return this.http.post<Container>(this.newContainer,record).pipe(first());
   }
 
-
+  edit(record: Container){
+    return this.http.put<Container>(this.editContainer,record);
+  }
 
   delete(id: Number ){
     return this.http.delete<Container>(this.deleteContainer+id);
   }
+
 
 }

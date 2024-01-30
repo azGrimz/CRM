@@ -33,8 +33,9 @@ public class ContainerController  {
         return containerRepository.save(container);
     }
 
-    @PutMapping("/editContainer/{id}")
+    @PutMapping("/editContainer")
     public ResponseEntity<Container> editContainer(@RequestBody Container container){
+
         if(!containerRepository.findById(container.getId()).isEmpty()){
             return ResponseEntity.status(HttpStatus.CREATED).body(containerRepository.save(container));
         }else{

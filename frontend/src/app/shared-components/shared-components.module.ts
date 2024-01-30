@@ -23,6 +23,7 @@ import { HomeScreenComponent } from '../pages/home-screen/home-screen.component'
 import { HeaderComponent } from '../components/header/header.component';
 import { ModalAddContainerComponent } from '../components/modal-add-container/modal-add-container.component';
 import { EditContainerComponent } from '../components/modals/edit-container/edit-container.component';
+import { DeleteContainerComponent } from '../components/modals/delete-container/delete-container.component';
 
 
 
@@ -32,7 +33,8 @@ import { EditContainerComponent } from '../components/modals/edit-container/edit
     HomeScreenComponent,
     HeaderComponent,
     ModalAddContainerComponent,
-    EditContainerComponent
+    EditContainerComponent,
+    DeleteContainerComponent
   ],
   imports: [
     CommonModule,

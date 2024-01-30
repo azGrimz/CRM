@@ -18,3 +18,14 @@ table{
 .newContainer{
   left: 85%;
 }
+
+.right{
+
+  position: absolute;
+  right: 10px;
+
+}
+
+.header-table{
+  border: orangered solid 1px;
+}

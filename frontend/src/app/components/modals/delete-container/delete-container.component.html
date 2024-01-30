@@ -1,1 +1,12 @@
-<p>delete-container works!</p>
+<div class="container">
+  <h1 mat-dialog-title>Adicionar Container</h1>
+  <div mat-dialog-content>
+
+    <h1>Deseja realmente excluir ? </h1>
+  </div>
+  <div class="button_actions" mat-dialog-actions>
+    <button mat-raised-button color="primary"  (click)="onDelete()">Deletar</button>
+    <button mat-button mat-dialog-close cdkFocusInitial>Cancelar</button>
+  </div>
+
+</div>

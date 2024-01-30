@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "containers")
@@ -29,4 +31,7 @@ public class Container {
 
     @Column(name="container_categoria")
     private @Setter @Getter String categoria;
+
+    @OneToMany
+    private List<Movimentacao> Movimentacao;
 }

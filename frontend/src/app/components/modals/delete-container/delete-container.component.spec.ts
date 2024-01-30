@@ -8,10 +8,10 @@ describe('DeleteContainerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DeleteContainerComponent]
+      declarations: [DeleteContainerComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(DeleteContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

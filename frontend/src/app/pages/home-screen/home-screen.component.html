@@ -2,13 +2,18 @@
 <div class="container-fluid">
   <div class="card">
     <mat-toolbar class="header-table">
+    <div class="left">
       <span>Containers</span>
-      <button class="newContainer" mat-raised-button color="primary" (click)="openModelAdd()">Novo</button>
+
+    </div>
+    <div class="right">
+      <button mat-raised-button color="primary" (click)="openModelAdd()">Novo</button>
+
+    </div>
     </mat-toolbar>
 
     <div *ngIf="containers$ | async as containers; else loading">
       <table mat-table [dataSource]="containers" class="mat-elevation-z8">
-
 
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef> Numero </th>

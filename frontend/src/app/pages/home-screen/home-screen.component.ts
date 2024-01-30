@@ -6,6 +6,7 @@ import { ContainerService } from '../../services/container.service';
 import { ModalAddContainerComponent } from '../../components/modal-add-container/modal-add-container.component';
 import { MatDialog } from '@angular/material/dialog';
 import { EditContainerComponent } from '../../components/modals/edit-container/edit-container.component';
+import { DeleteContainerComponent } from '../../components/modals/delete-container/delete-container.component';
 
 
 @Component({
@@ -47,11 +48,15 @@ export class HomeScreenComponent {
     this.matDialog.open(EditContainerComponent,{
       width:'300px',
       data: container
-    }).beforeClosed().subscribe(() => this.getCourses());
+    })
   }
 
 
   deleteContainer(id: Number){
-    this.containerService.delete(id).subscribe(result => result,error => error);
+    this.matDialog.open(DeleteContainerComponent,{
+      width:'300px',
+      data:id
+    }).beforeClosed().subscribe(() => this.getCourses());
+
    }
 }
