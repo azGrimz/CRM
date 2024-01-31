@@ -39,19 +39,13 @@ public class ContainerController  {
     }
 
 
-
+    @PutMapping("/editContainer")
     public ResponseEntity<Container> editContainer(@RequestBody Container container){
-
-        if(!containerRepository.findById(container.getId()).isEmpty()){
-            return ResponseEntity.status(HttpStatus.CREATED).body(containerRepository.save(container));
-        }else{
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
+        return containerService.editarContainer(container);
     }
 
     @DeleteMapping(value="/deleteContainer/{id}")
     public ResponseEntity<Boolean> deleteContainer(@PathVariable("id")Long id){
-        containerRepository.deleteById(id);
-        return ResponseEntity.ok(!(containerRepository.findById(id)!=null));
+        return containerService.deleteContainer(id);
     }
 }

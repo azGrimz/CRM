@@ -48,7 +48,8 @@ export class HomeScreenComponent {
     this.matDialog.open(EditContainerComponent,{
       width:'300px',
       data: container
-    })
+    }).beforeClosed().subscribe(() => this.getCourses());
+
   }
 
 
