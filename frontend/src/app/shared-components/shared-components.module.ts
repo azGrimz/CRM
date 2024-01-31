@@ -24,7 +24,7 @@ import { HeaderComponent } from '../components/header/header.component';
 import { ModalAddContainerComponent } from '../components/modal-add-container/modal-add-container.component';
 import { EditContainerComponent } from '../components/modals/edit-container/edit-container.component';
 import { DeleteContainerComponent } from '../components/modals/delete-container/delete-container.component';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -49,7 +49,8 @@ import { DeleteContainerComponent } from '../components/modals/delete-container/
     MatSelectModule,
     MatButtonModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatSidenavModule,
   ],
   providers:[
     HttpClientModule
