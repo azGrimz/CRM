@@ -23,25 +23,6 @@ public class BackendApplication {
     CommandLineRunner initDatabase(LoginFuncRepository loginFuncRepository) {
         return args -> {
 
-        //    containerRepository.deleteAll();
-        //    movimentacaoRepository.deleteAll();
-//
-        //    Container c = new Container();
-        //    c.setCliente("Maersk");
-        //    c.setIdentificacao("TEST123456");
-        //    c.setTipo(Long.valueOf(20));
-        //    c.setStatus("Cheio");
-        //    c.setCategoria("Importação");
-//
-//
-//
-        //    Movimentacao m = new Movimentacao();
-        //    m.setTipoMovimentacao("embarque");
-        //    m.setDateHoraInicio(Calendar.getInstance());
-        //    m.setDataHoraFim(Calendar.getInstance());
-        //    m.setContainer(c);
-        //    containerRepository.save(c);
-        //    movimentacaoRepository.save(m);
         };
     }
 }

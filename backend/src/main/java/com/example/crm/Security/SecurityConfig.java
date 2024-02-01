@@ -25,6 +25,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers(WHITE_LIST).permitAll()
                         .requestMatchers(HttpMethod.DELETE).permitAll()
+                        .requestMatchers(HttpMethod.GET).permitAll()
                         .requestMatchers(HttpMethod.PUT).permitAll()
                         .requestMatchers(HttpMethod.POST).permitAll()
                         .anyRequest().authenticated())

@@ -18,7 +18,7 @@ import { DeleteContainerComponent } from '../../components/modals/delete-contain
 export class HomeScreenComponent {
 
   containers$: Observable<Container[]> = new Observable<any>
-  displayedColumns = ['id','cliente','identificacao','tipo','status','categoria','actions'];
+  displayedColumns = ['id','cliente','identificacao','tipo','status','categoria','actions','movimentacao'];
 
   constructor(
     private containerService: ContainerService,
