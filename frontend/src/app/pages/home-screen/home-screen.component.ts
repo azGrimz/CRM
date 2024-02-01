@@ -1,3 +1,4 @@
+import { AdicionarComponent } from './../../components/modals/movimentacao/adicionar/adicionar.component';
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { Observable, catchError, of } from 'rxjs';
@@ -59,5 +60,13 @@ export class HomeScreenComponent {
       data:id
     }).beforeClosed().subscribe(() => this.getCourses());
 
+   }
+
+
+   criarMovimentacao(id:number){
+    this.matDialog.open(AdicionarComponent,{
+      width:'300px',
+      data:id
+    }).beforeClosed().subscribe(() => this.getCourses());
    }
 }

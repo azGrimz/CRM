@@ -25,16 +25,20 @@ import { ModalAddContainerComponent } from '../components/modal-add-container/mo
 import { EditContainerComponent } from '../components/modals/edit-container/edit-container.component';
 import { DeleteContainerComponent } from '../components/modals/delete-container/delete-container.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { AdicionarComponent } from '../components/modals/movimentacao/adicionar/adicionar.component';
+import { MovimentacaoComponent } from '../pages/movimentacao/movimentacao.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     HomeScreenComponent,
+    MovimentacaoComponent,
     HeaderComponent,
     ModalAddContainerComponent,
     EditContainerComponent,
-    DeleteContainerComponent
+    DeleteContainerComponent,
+    AdicionarComponent
   ],
   imports: [
     CommonModule,

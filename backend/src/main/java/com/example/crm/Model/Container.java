@@ -32,5 +32,5 @@ public class Container {
     private @Setter @Getter String categoria;
 
     @OneToMany(mappedBy = "container",targetEntity =Movimentacao.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL )
-    private List<Movimentacao> container;
+    private List<Movimentacao> movimentacao;
 }

@@ -30,4 +30,6 @@ public class Movimentacao {
     @ManyToOne
     @JoinColumn(name = "containerId",referencedColumnName = "container_id", foreignKey = @ForeignKey(name = "fk_container"))
     private Container container;
+
+
 }

@@ -6,10 +6,8 @@ import com.example.crm.Model.Movimentacao;
 import com.example.crm.Repository.MovimentacaoRepository;
 import com.example.crm.Service.MovimentacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,4 +28,11 @@ public class MovimentcaoControler {
     public List<Movimentacao> list(){
         return movimentacaoRepository.findAll();
     }
+
+    @PostMapping("/newMovimentacao")
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public Movimentacao create(@RequestBody Movimentacao movimentacao){
+        return  movimentacaoService.criarMovimentcacao(movimentacao);
+    }
+
 }

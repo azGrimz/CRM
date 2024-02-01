@@ -18,5 +18,8 @@ public class MovimentacaoService {
     private MovimentacaoRepository movimentacaoRepository;
 
 
+    public Movimentacao criarMovimentcacao(Movimentacao movimentacao){
+        return movimentacaoRepository.save(movimentacao);
+    }
 
 }

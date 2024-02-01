@@ -48,14 +48,17 @@
 
         <ng-container matColumnDef="actions">
           <th  mat-header-cell *matHeaderCellDef>
-            Ações
+                Ações
           </th>
           <td mat-cell *matCellDef="let containers">
-            <button (click)="editContainer(containers)" mat-icon-button color="primary"aria-label="Example icon button with a home icon">
+            <button (click)="editContainer(containers)" mat-icon-button color="accent"aria-label="Example icon button with a home icon">
               <mat-icon>edit</mat-icon>
             </button>
             <button (click)="deleteContainer(containers.id)" mat-icon-button color="warn" aria-label="Example icon button with a menu icon">
               <mat-icon>delete</mat-icon>
+            </button>
+            <button (click)="deleteContainer(containers.id )" mat-icon-button color="primary" aria-label="Example icon button with a menu icon">
+              <mat-icon>inventory</mat-icon>
             </button>
           </td>
         </ng-container>
