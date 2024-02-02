@@ -2,37 +2,29 @@
   <h1 mat-dialog-title>Adicionar Container</h1>
   <div mat-dialog-content>
     <form [formGroup]="form">
-      <mat-form-field>
-        <input matInput placeholder="Cliente" formControlName="cliente">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Numero do Container" formControlName="identificacao">
-      </mat-form-field>
+
       <mat-form-field>
         <mat-label>Tipo</mat-label>
         <mat-select mat-select formControlName="tipo">
-          <mat-option value="20">20</mat-option>
-          <mat-option value="40">40</mat-option>
+          <mat-option value="Embarque">Embarque</mat-option>
+          <mat-option value="Descarga">Descarga</mat-option>
+          <mat-option value="Gate In">Gate In</mat-option>
+          <mat-option value="Gate Out">Gate Out</mat-option>
+          <mat-option value="Reposicionamento">Reposicionamento</mat-option>
+          <mat-option value="Pesagem">Pesagem</mat-option>
+          <mat-option value="Scanner">Scanner</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
-        <mat-label>Status</mat-label>
-        <mat-select mat-select formControlName="status">
-          <mat-option value="Cheio">Cheio</mat-option>
-          <mat-option value="Vazio">Vazio</mat-option>
-        </mat-select>
+        <input type="date" matInput placeholder="Data Inicio" formControlName="dataInicio">
       </mat-form-field>
       <mat-form-field>
-        <mat-label>categoria</mat-label>
-        <mat-select mat-select formControlName="categoria">
-          <mat-option value="Importação">Importação</mat-option>
-          <mat-option value="Exportação">Exportação</mat-option>
-        </mat-select>
+        <input type="date"matInput placeholder="Data Fim" formControlName="dataFim">
       </mat-form-field>
     </form>
   </div>
   <div class="button_actions" mat-dialog-actions>
-    <button mat-raised-button color="primary" >Adicionar</button>
+    <button mat-raised-button color="primary" (click)="onSubmit()" >Adicionar</button>
     <button mat-button mat-dialog-close cdkFocusInitial>Cancelar</button>
   </div>
 

@@ -1,6 +1,7 @@
 package com.example.crm.Controller;
 
 
+import com.example.crm.DTO.MovimentacaoDTO;
 import com.example.crm.Model.Container;
 import com.example.crm.Model.Movimentacao;
 import com.example.crm.Repository.MovimentacaoRepository;
@@ -31,8 +32,8 @@ public class MovimentcaoControler {
 
     @PostMapping("/newMovimentacao")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Movimentacao create(@RequestBody Movimentacao movimentacao){
-        return  movimentacaoService.criarMovimentcacao(movimentacao);
+    public Movimentacao create(@RequestBody MovimentacaoDTO movimentacaoDTO){
+        return  movimentacaoService.criarMovimentcacao(movimentacaoDTO);
     }
 
 }

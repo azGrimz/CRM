@@ -1,8 +1,9 @@
 package com.example.crm.Model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
-import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
 
 import java.util.Calendar;
 
@@ -14,22 +15,24 @@ public class Movimentacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "movimentacao_id")
-    private Long id;
+    private Long movimentacao_id;
 
     @Column(name = "movimentacao_tipomov")
-    private String TipoMovimentacao;
+    private String tipo;
 
     @Column(name = "movimentacao_datainicio")
     @Temporal(TemporalType.TIMESTAMP)
-    private Calendar DateHoraInicio;
+    private Calendar dataInicio;
 
     @Column(name = "movimentacao_datafim")
     @Temporal(TemporalType.TIMESTAMP)
-    private Calendar DataHoraFim;
+    private Calendar dataFim;
 
-    @ManyToOne
-    @JoinColumn(name = "containerId",referencedColumnName = "container_id", foreignKey = @ForeignKey(name = "fk_container"))
+    @ManyToOne(targetEntity = Container.class)
+    @JoinColumn(name = "container_id",referencedColumnName = "container_id", foreignKey = @ForeignKey(name = "fk_container"))
     private Container container;
+
+
 
 
 }

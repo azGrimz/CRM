@@ -1,7 +1,7 @@
 export interface Movimentacao {
-  id: number;
+  movimentacao_id: number;
   dataInicio: Date;
   dataFim: Date;
-  tipo: String
+  tipo: String;
   container: number;
 }

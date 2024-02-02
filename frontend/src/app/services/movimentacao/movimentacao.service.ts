@@ -8,12 +8,14 @@ import { Movimentacao } from '../../models/Movimentacao';
 })
 export class MovimentacaoService {
 
-  private readonly newContainer = 'http://localhost:8081/containerAPI/newContainer'
+  private readonly newContainer = 'http://localhost:8081/movimentacaoAPI/newMovimentacao'
   constructor(private http: HttpClient) {
    }
 
 
    save(record: Movimentacao){
+    console.log(record);
+
     return this.http.post<Movimentacao>(this.newContainer,record).pipe(first());
   }
 
