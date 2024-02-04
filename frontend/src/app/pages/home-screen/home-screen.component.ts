@@ -6,8 +6,7 @@ import { Container } from '../../models/Container';
 import { ContainerService } from '../../services/container.service';
 import { ModalAddContainerComponent } from '../../components/modal-add-container/modal-add-container.component';
 import { MatDialog } from '@angular/material/dialog';
-import { EditContainerComponent } from '../../components/modals/edit-container/edit-container.component';
-import { DeleteContainerComponent } from '../../components/modals/delete-container/delete-container.component';
+
 
 
 @Component({
@@ -41,23 +40,33 @@ export class HomeScreenComponent {
   openModelAdd(){
     //this.router.navigate(['courses/dialog']);
     this.matDialog.open(ModalAddContainerComponent,{
-      width:'300px',
+      data:{
+        type: "newContainer"
+      }
     }).beforeClosed().subscribe(() => this.getCourses());
   }
 
-  editContainer(container: Container){
-    this.matDialog.open(EditContainerComponent,{
+  editContainer(container: Object){
+
+
+    this.matDialog.open(ModalAddContainerComponent,{
       width:'300px',
-      data: container
+      data:{
+        container: container,
+        type: "editContainer"
+      }
     }).beforeClosed().subscribe(() => this.getCourses());
 
   }
 
 
   deleteContainer(id: Number){
-    this.matDialog.open(DeleteContainerComponent,{
+    this.matDialog.open(ModalAddContainerComponent,{
       width:'300px',
-      data:id
+      data:{
+        id: id,
+        type: "deleteContainer"
+      }
     }).beforeClosed().subscribe(() => this.getCourses());
 
    }
@@ -66,7 +75,10 @@ export class HomeScreenComponent {
    criarMovimentacao(id:number){
     this.matDialog.open(AdicionarComponent,{
       width:'300px',
-      data:id
+      data:{
+        id: id,
+        type: "newMovimentacao"
+      }
     }).beforeClosed().subscribe(() => this.getCourses());
    }
 }

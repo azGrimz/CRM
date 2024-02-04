@@ -1,13 +1,16 @@
-<div class="container">
+
+<div class="container" *ngIf="data.type === 'newContainer'">
   <h1 mat-dialog-title>Adicionar Container</h1>
   <div mat-dialog-content>
-    <form [formGroup]="form">
+    <form [formGroup]="formNewContainer">
       <mat-form-field>
         <input matInput placeholder="Cliente" formControlName="cliente">
       </mat-form-field>
+      <br>
       <mat-form-field>
         <input matInput placeholder="Numero do Container" formControlName="identificacao">
       </mat-form-field>
+      <br>
       <mat-form-field>
         <mat-label>Tipo</mat-label>
         <mat-select mat-select formControlName="tipo">
@@ -15,6 +18,7 @@
           <mat-option value="40">40</mat-option>
         </mat-select>
       </mat-form-field>
+      <br>
       <mat-form-field>
         <mat-label>Status</mat-label>
         <mat-select mat-select formControlName="status">
@@ -22,6 +26,7 @@
           <mat-option value="Vazio">Vazio</mat-option>
         </mat-select>
       </mat-form-field>
+      <br>
       <mat-form-field>
         <mat-label>categoria</mat-label>
         <mat-select mat-select formControlName="categoria">
@@ -32,8 +37,83 @@
     </form>
   </div>
   <div class="button_actions" mat-dialog-actions>
-    <button mat-raised-button color="primary"  (click)="onSubmit()">Adicionar</button>
-    <button mat-button mat-dialog-close cdkFocusInitial>Cancelar</button>
+    <button mat-raised-button color="primary" (click)="onNewContainer()">Adicionar</button>
+    <button mat-button mat-dialog-close cdkFocusInitial>Fechar</button>
   </div>
 
 </div>
+
+
+
+
+<div class="container" *ngIf="data.type === 'editContainer'">
+  <h1 mat-dialog-title>Editar Container</h1>
+  <div mat-dialog-content>
+    <form [formGroup]="formEditContainer">
+      <mat-form-field>
+        <input matInput placeholder="Cliente" formControlName="cliente">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Numero do Container" formControlName="identificacao">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Tipo</mat-label>
+        <mat-select mat-select formControlName="tipo">
+          <mat-option value="20">20</mat-option>
+          <mat-option value="40">40</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>Status</mat-label>
+        <mat-select mat-select formControlName="status">
+          <mat-option value="Cheio">Cheio</mat-option>
+          <mat-option value="Vazio">Vazio</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label>categoria</mat-label>
+        <mat-select mat-select formControlName="categoria">
+          <mat-option value="Importação">Importação</mat-option>
+          <mat-option value="Exportação">Exportação</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="button_actions" mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="onEditContainer()">Adicionar</button>
+    <button mat-button mat-dialog-close cdkFocusInitial>Fechar</button>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container" *ngIf="data.type === 'deleteContainer'">
+  <h1 mat-dialog-title>Adicionar Container</h1>
+  <div mat-dialog-content>
+
+    <h1>Deseja realmente excluir ? </h1>
+  </div>
+  <div class="button_actions" mat-dialog-actions>
+    <button mat-raised-button color="primary"  (click)="onDeleteContainer()">Deletar</button>
+    <button mat-button mat-dialog-close cdkFocusInitial>Fechar</button>
+  </div>
+
+</div>
+
+
+
+
