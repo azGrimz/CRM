@@ -1,4 +1,4 @@
-import { Container } from './../../models/Container';
+import { Container } from '../../models/Container';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';

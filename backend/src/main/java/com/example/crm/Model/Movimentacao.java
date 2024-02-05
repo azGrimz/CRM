@@ -1,6 +1,7 @@
 package com.example.crm.Model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -29,6 +30,7 @@ public class Movimentacao {
     private Calendar dataFim;
 
     @ManyToOne(targetEntity = Container.class)
+    @JsonIgnore
     @JoinColumn(name = "container_id",referencedColumnName = "container_id", foreignKey = @ForeignKey(name = "fk_container"))
     private Container container;
 

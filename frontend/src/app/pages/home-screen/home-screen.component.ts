@@ -1,10 +1,10 @@
-import { AdicionarComponent } from './../../components/modals/movimentacao/adicionar/adicionar.component';
+import { AdicionarComponent } from '../../components/modal-movimentacao/adicionar.component';
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { Observable, catchError, of } from 'rxjs';
 import { Container } from '../../models/Container';
 import { ContainerService } from '../../services/container.service';
-import { ModalAddContainerComponent } from '../../components/modal-add-container/modal-add-container.component';
+import { ModalAddContainerComponent } from '../../components/modal-container/modal-add-container.component';
 import { MatDialog } from '@angular/material/dialog';
 
 
@@ -46,6 +46,9 @@ export class HomeScreenComponent {
     }).beforeClosed().subscribe(() => this.getCourses());
   }
 
+
+
+
   editContainer(container: Object){
 
 
@@ -78,6 +81,19 @@ export class HomeScreenComponent {
       data:{
         id: id,
         type: "newMovimentacao"
+      }
+    }).beforeClosed().subscribe(() => this.getCourses());
+   }
+
+
+
+   listMovimentacao(id:number){
+    this.matDialog.open(AdicionarComponent,{
+      width:'600px',
+      height:'600px',
+      data:{
+        id: id,
+        type: "listMovimentacao"
       }
     }).beforeClosed().subscribe(() => this.getCourses());
    }

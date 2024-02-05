@@ -21,9 +21,9 @@ import { LoginComponent } from '../components/login/login.component';
 import { CrmRouting } from './crm-routing.module';
 import { HomeScreenComponent } from '../pages/home-screen/home-screen.component';
 import { HeaderComponent } from '../components/header/header.component';
-import { ModalAddContainerComponent } from '../components/modal-add-container/modal-add-container.component';
+import { ModalAddContainerComponent } from '../components/modal-container/modal-add-container.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { AdicionarComponent } from '../components/modals/movimentacao/adicionar/adicionar.component';
+import { AdicionarComponent } from '../components/modal-movimentacao/adicionar.component';
 
 
 

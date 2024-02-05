@@ -1,5 +1,6 @@
 package com.example.crm.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -31,6 +32,9 @@ public class Container {
     @Column(name="container_categoria")
     private @Setter @Getter String categoria;
 
+
+
     @OneToMany(mappedBy = "container",targetEntity =Movimentacao.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL )
+    @JsonIgnore
     private List<Movimentacao> movimentacao;
 }

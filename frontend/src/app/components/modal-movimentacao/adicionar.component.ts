@@ -1,8 +1,10 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, Inject } from '@angular/core';
-import { MovimentacaoService } from '../../../../services/movimentacao/movimentacao.service';
+import { MovimentacaoService } from '../../services/movimentacao/movimentacao.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Movimentacao } from '../../models/Movimentacao';
+import { Observable, catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-adicionar',
@@ -11,21 +13,41 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class AdicionarComponent {
   form: FormGroup;
+  public container: number;
+  movimentacao$: Observable<Movimentacao[]> = new Observable<any>
+  displayedColumns = ['tipo','dataInicio','dataFim','actions'];
 
   constructor(private FormBuilder: FormBuilder,
-    private service: MovimentacaoService,
+    private serviceMovimentacao: MovimentacaoService,
     private snackBar: MatSnackBar,
-    @Inject(MAT_DIALOG_DATA) public id: number){
+    @Inject(MAT_DIALOG_DATA) public data: any){
+      this.container = data.id;
+    console.log(data)
     this.form = this.FormBuilder.group({
       tipo:['',Validators.required],
       dataInicio:['',Validators.required],
       dataFim:['',Validators.required],
-      container:[id,Validators.required]
+      container:[data.id,Validators.required]
     });
+
+
+    this.getCourses();
   }
 
+
+  getCourses(){
+    this.movimentacao$ =  this.serviceMovimentacao.list()
+    .pipe(
+      catchError(error => {
+        console.log(error);
+        return of([])
+      })
+    );
+  }
+
+
   onSubmit(){
-   this.service.save(this.form.value)
+   this.serviceMovimentacao.saveMovimentacao(this.form.value)
    .subscribe(result => this.onSucess(),error => this.onError());
   }
 

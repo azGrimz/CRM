@@ -25,10 +25,10 @@ public class MovimentcaoControler {
     private MovimentacaoService movimentacaoService;
 
 
-    @GetMapping("/listMovimentacao")
-    public List<Movimentacao> list(){
-        return movimentacaoRepository.findAll();
-    }
+        @GetMapping("/listMovimentacao")
+        public List<Movimentacao> list(){
+            return movimentacaoRepository.findAll();
+        }
 
     @PostMapping("/newMovimentacao")
     @ResponseStatus(code = HttpStatus.CREATED)
