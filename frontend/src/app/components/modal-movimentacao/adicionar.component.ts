@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Movimentacao } from '../../models/Movimentacao';
 import { Observable, catchError, of } from 'rxjs';
+import { Container } from '../../models/Container';
 
 @Component({
   selector: 'app-adicionar',
@@ -15,6 +16,7 @@ export class AdicionarComponent {
   form: FormGroup;
   public container: number;
   movimentacao$: Observable<Movimentacao[]> = new Observable<any>
+  container$: Observable<Container[]> = new Observable<any>
   displayedColumns = ['tipo','dataInicio','dataFim','actions'];
 
   constructor(private FormBuilder: FormBuilder,
@@ -22,6 +24,7 @@ export class AdicionarComponent {
     private snackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data: any){
       this.container = data.id;
+
     console.log(data)
     this.form = this.FormBuilder.group({
       tipo:['',Validators.required],
@@ -31,18 +34,16 @@ export class AdicionarComponent {
     });
 
 
-    this.getCourses();
+  this.getCourses();
+    console.log(this.getCourses())
   }
 
 
   getCourses(){
-    this.movimentacao$ =  this.serviceMovimentacao.list()
-    .pipe(
-      catchError(error => {
-        console.log(error);
-        return of([])
-      })
-    );
+    this.serviceMovimentacao.list(this.container).subscribe(value =>{
+      this.container$;
+      console.log(this.container$);
+    })
   }
 
 

@@ -30,8 +30,9 @@ public class Movimentacao {
     private Calendar dataFim;
 
     @ManyToOne(targetEntity = Container.class)
-    @JsonIgnore
+
     @JoinColumn(name = "container_id",referencedColumnName = "container_id", foreignKey = @ForeignKey(name = "fk_container"))
+    @JsonIgnore
     private Container container;
 
 

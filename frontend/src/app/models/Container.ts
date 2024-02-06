@@ -1,3 +1,5 @@
+
+import { Movimentacao } from './Movimentacao';
 export interface Container {
   id: number;
   cliente: string;
@@ -5,4 +7,5 @@ export interface Container {
   tipo: number;
   categoria: string;
 
+  movimentacao: Movimentacao[];
 }

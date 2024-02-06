@@ -21,6 +21,7 @@ export class ModalAddContainerComponent   {
     private snackBar: MatSnackBar,
 
     @Inject(MAT_DIALOG_DATA) public data: any){
+
       const containerData = data.container || {};
       this.identify = data.id
       this.formEditContainer = this.FormBuilder.group({

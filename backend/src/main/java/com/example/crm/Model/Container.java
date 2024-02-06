@@ -5,11 +5,13 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.List;
 
 @Data
 @Entity
+@ToString
 public class Container {
 
     @Id
@@ -34,7 +36,6 @@ public class Container {
 
 
 
-    @OneToMany(mappedBy = "container",targetEntity =Movimentacao.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL )
-    @JsonIgnore
+    @OneToMany(mappedBy = "container",targetEntity=Movimentacao.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL )
     private List<Movimentacao> movimentacao;
 }

@@ -4,6 +4,7 @@ package com.example.crm.Controller;
 import com.example.crm.DTO.MovimentacaoDTO;
 import com.example.crm.Model.Container;
 import com.example.crm.Model.Movimentacao;
+import com.example.crm.Repository.ContainerRepository;
 import com.example.crm.Repository.MovimentacaoRepository;
 import com.example.crm.Service.MovimentacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,13 @@ public class MovimentcaoControler {
     @Autowired
     private MovimentacaoService movimentacaoService;
 
+    @Autowired
+    private ContainerRepository containerRepository;
 
-        @GetMapping("/listMovimentacao")
-        public List<Movimentacao> list(){
-            return movimentacaoRepository.findAll();
+        @GetMapping("/listMovimentacao/{id}")
+        public Container list(@PathVariable Long id){
+
+            return containerRepository.findById(id).get();
         }
 
     @PostMapping("/newMovimentacao")

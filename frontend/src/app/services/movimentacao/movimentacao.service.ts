@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, first } from 'rxjs';
+import { Observable, delay, first } from 'rxjs';
 import { Movimentacao } from '../../models/Movimentacao';
+import { Container } from '../../models/Container';
 
 @Injectable({
   providedIn: 'root'
@@ -9,16 +10,12 @@ import { Movimentacao } from '../../models/Movimentacao';
 export class MovimentacaoService {
 
   private readonly newMovimentacao = 'http://localhost:8081/movimentacaoAPI/newMovimentacao'
-  private readonly listMovimentacao = 'http://localhost:8081/movimentacaoAPI/listMovimentacao'
+  private readonly listMovimentacao = 'http://localhost:8081/movimentacaoAPI/listMovimentacao/'
   constructor(private http: HttpClient) {
    }
 
-   list(){
-    return this.http.get<Movimentacao[]>(this.listMovimentacao)
-    .pipe(
-      first(),
-      delay(500)
-    );
+   list(id:number):Observable<any[]>{
+    return this.http.get<any[]>(this.listMovimentacao+id)
   }
 
    saveMovimentacao(record: Movimentacao){
@@ -26,7 +23,5 @@ export class MovimentacaoService {
 
     return this.http.post<Movimentacao>(this.newMovimentacao,record).pipe(first());
   }
-
-
 
 }
