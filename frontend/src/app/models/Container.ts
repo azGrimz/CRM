@@ -1,5 +1,5 @@
 
-import { Movimentacao } from './Movimentacao';
+
 export interface Container {
   id: number;
   cliente: string;
@@ -8,4 +8,12 @@ export interface Container {
   categoria: string;
 
   movimentacao: Movimentacao[];
+}
+
+
+export interface Movimentacao{
+    tipo:string;
+    dataInicio: Date;
+    dataFim: Date;
+    movimentacao_id: number;
 }

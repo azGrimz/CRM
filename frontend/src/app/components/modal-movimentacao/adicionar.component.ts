@@ -19,6 +19,7 @@ export class AdicionarComponent {
   container$: Observable<Container[]> = new Observable<any>
   displayedColumns = ['tipo','dataInicio','dataFim','actions'];
 
+  dataMov: any;
   constructor(private FormBuilder: FormBuilder,
     private serviceMovimentacao: MovimentacaoService,
     private snackBar: MatSnackBar,
@@ -40,10 +41,12 @@ export class AdicionarComponent {
 
 
   getCourses(){
-    this.serviceMovimentacao.list(this.container).subscribe(value =>{
-      this.container$;
-      console.log(this.container$);
-    })
+    this.serviceMovimentacao.list(this.container).subscribe(
+      (data => {
+        this.dataMov = data
+      })
+    )
+
   }
 
 
