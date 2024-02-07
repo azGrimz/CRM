@@ -6,5 +6,4 @@ export interface Movimentacao {
   tipo: String;
   container: number;
 
-  containers: Container[];
 }

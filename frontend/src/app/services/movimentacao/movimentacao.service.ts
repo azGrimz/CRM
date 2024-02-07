@@ -15,9 +15,9 @@ export class MovimentacaoService {
   constructor(private http: HttpClient) {
    }
 
-   list(id:number):Observable<Container[]>{
+   list(id:number){
 
-    return this.http.get<Container[]>(this.listMovimentacao+id)
+    return this.http.get<Movimentacao[]>(this.listMovimentacao+id)
 
   }
 

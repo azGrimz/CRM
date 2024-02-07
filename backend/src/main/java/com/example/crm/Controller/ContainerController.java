@@ -2,6 +2,7 @@ package com.example.crm.Controller;
 
 import com.example.crm.DTO.ContainerDTO;
 import com.example.crm.Model.Container;
+import com.example.crm.Model.Movimentacao;
 import com.example.crm.Repository.ContainerRepository;
 import com.example.crm.Service.ContainerService;
 import okhttp3.Response;
@@ -48,4 +49,6 @@ public class ContainerController  {
     public ResponseEntity<Boolean> deleteContainer(@PathVariable("id")Long id){
         return containerService.deleteContainer(id);
     }
+
+
 }

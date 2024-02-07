@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { Observable, catchError, of } from 'rxjs';
 import { Container } from '../../models/Container';
-import { ContainerService } from '../../services/container.service';
+import { ContainerService } from '../../services/container/container.service';
 import { ModalAddContainerComponent } from '../../components/modal-container/modal-add-container.component';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -89,12 +89,12 @@ export class HomeScreenComponent {
 
    listMovimentacao(id:number){
     this.matDialog.open(AdicionarComponent,{
-      width:'600px',
-      height:'600px',
+      width:'900px',
+
       data:{
         id: id,
         type: "listMovimentacao"
       }
-    }).beforeClosed().subscribe(() => this.getCourses());
+    })
    }
 }

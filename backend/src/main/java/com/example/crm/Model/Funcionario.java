@@ -14,7 +14,7 @@ public class Funcionario {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name="func_id")
-    private Long id;
+    private Integer id;
     @Column(name="func_name")
     private String name;
 

@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from '../../services/login-auth.service';
+import { LoginService } from '../../services/login/login-auth.service';
 import { HomeScreenComponent } from '../../pages/home-screen/home-screen.component';
 
 @Component({

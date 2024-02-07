@@ -1,0 +1,25 @@
+
+table{
+  width: 100%;
+}
+
+
+.newContainer{
+  left: 85%;
+}
+
+.right{
+  width: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+  padding: 5px;
+}
+
+
+.close{
+
+  right: 0%;
+}

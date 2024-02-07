@@ -2,7 +2,9 @@ package com.example.crm.Service;
 
 import com.example.crm.DTO.ContainerDTO;
 import com.example.crm.DTO.LoginDTO;
+import com.example.crm.DTO.MovimentacaoDTO;
 import com.example.crm.Model.Container;
+import com.example.crm.Model.Movimentacao;
 import com.example.crm.Repository.ContainerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -26,7 +29,7 @@ public class ContainerService {
 
     public ResponseEntity<Container> editarContainer(Container container){
 
-        if(!containerRepository.findById(container.getId()).isEmpty()){
+        if(!containerRepository.findById(Long.valueOf(container.getId())).isEmpty()){
             return ResponseEntity.status(HttpStatus.CREATED).body(containerRepository.save(container));
         }else{
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -38,4 +41,5 @@ public class ContainerService {
         containerRepository.deleteById(id);
         return ResponseEntity.ok(!(containerRepository.findById(id)!=null));
     }
+
 }

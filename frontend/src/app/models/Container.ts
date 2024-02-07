@@ -1,5 +1,4 @@
 
-
 export interface Container {
   id: number;
   cliente: string;
@@ -10,10 +9,10 @@ export interface Container {
   movimentacao: Movimentacao[];
 }
 
-
 export interface Movimentacao{
-    tipo:string;
-    dataInicio: Date;
-    dataFim: Date;
-    movimentacao_id: number;
+  movimentacao_id: number;
+  dataInicio: Date;
+  dataFim: Date;
+  tipo: String;
+
 }

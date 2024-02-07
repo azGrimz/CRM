@@ -29,10 +29,16 @@ public class MovimentcaoControler {
     private ContainerRepository containerRepository;
 
         @GetMapping("/listMovimentacao/{id}")
-        public Container list(@PathVariable Long id){
+        public List <Movimentacao> list(@PathVariable Long id){
 
-            return containerRepository.findById(id).get();
+            return movimentacaoRepository.getMovimentacaoByContainerId(id);
         }
+
+    @GetMapping("/listNewMovimentacao/{id}")
+    public Container container(@PathVariable Long id){
+
+        return containerRepository.findById(id).get();
+    }
 
     @PostMapping("/newMovimentacao")
     @ResponseStatus(code = HttpStatus.CREATED)

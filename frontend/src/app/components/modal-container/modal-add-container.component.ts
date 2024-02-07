@@ -2,7 +2,7 @@ import { Container } from '../../models/Container';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ContainerService } from '../../services/container.service';
+import { ContainerService } from '../../services/container/container.service';
 import { MovimentacaoService } from '../../services/movimentacao/movimentacao.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 

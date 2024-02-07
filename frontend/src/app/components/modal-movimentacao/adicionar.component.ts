@@ -16,10 +16,11 @@ export class AdicionarComponent {
   form: FormGroup;
   public container: number;
   movimentacao$: Observable<Movimentacao[]> = new Observable<any>
-  container$: Observable<Container[]> = new Observable<any>
-  displayedColumns = ['tipo','dataInicio','dataFim','actions'];
+  container$!: Observable<Movimentacao[]>
+  displayedColumns = ['container','tipo','dataInicio','dataFim','actions'];
 
-  dataMov: any;
+dataMov:any
+
   constructor(private FormBuilder: FormBuilder,
     private serviceMovimentacao: MovimentacaoService,
     private snackBar: MatSnackBar,
@@ -35,20 +36,23 @@ export class AdicionarComponent {
     });
 
 
-  this.getCourses();
-    console.log(this.getCourses())
-  }
-
-
-  getCourses(){
-    this.serviceMovimentacao.list(this.container).subscribe(
-      (data => {
-        this.dataMov = data
-      })
-    )
+  this.getMovimentaacos();
 
   }
 
+
+ getMovimentaacos(){
+   this.movimentacao$ = this.serviceMovimentacao.list(this.container)
+
+ }
+
+
+//getMovimentacao(){
+// this.serviceMovimentacao.list(this.container).subscribe((response:any) =>{
+//   this.container$ = response.data;
+//   console.log(response.data )
+// })
+//}
 
   onSubmit(){
    this.serviceMovimentacao.saveMovimentacao(this.form.value)
