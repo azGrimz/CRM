@@ -20,9 +20,8 @@ public class BackendApplication {
     }
 
     @Bean
-    CommandLineRunner initDatabase(LoginFuncRepository loginFuncRepository,MovimentacaoRepository movimentacaoRepository) {
+    CommandLineRunner initDatabase(LoginFuncRepository loginFuncRepository) {
         return args -> {
-            movimentacaoRepository.deleteAll();
         };
     }
 }
