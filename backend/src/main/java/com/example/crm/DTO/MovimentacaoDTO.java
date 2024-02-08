@@ -9,6 +9,7 @@ import java.util.Calendar;
 
 @Data
 public class MovimentacaoDTO {
+    private Long movimentacao_id;
     private String tipo;
     private Calendar dataInicio;
     private Calendar dataFim;

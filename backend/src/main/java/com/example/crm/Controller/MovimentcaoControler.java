@@ -9,6 +9,7 @@ import com.example.crm.Repository.MovimentacaoRepository;
 import com.example.crm.Service.MovimentacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,16 +35,21 @@ public class MovimentcaoControler {
             return movimentacaoRepository.getMovimentacaoByContainerId(id);
         }
 
-    @GetMapping("/listNewMovimentacao/{id}")
-    public Container container(@PathVariable Long id){
-
-        return containerRepository.findById(id).get();
-    }
 
     @PostMapping("/newMovimentacao")
     @ResponseStatus(code = HttpStatus.CREATED)
     public Movimentacao create(@RequestBody MovimentacaoDTO movimentacaoDTO){
         return  movimentacaoService.criarMovimentcacao(movimentacaoDTO);
+    }
+
+    @PutMapping("/editMovimentacao")
+    public ResponseEntity<Movimentacao> editMovimentacao(@RequestBody MovimentacaoDTO movimentacaoDTO){
+        return movimentacaoService.editMovimentacao(movimentacaoDTO);
+    }
+
+    @DeleteMapping(value="/editMovimentacao/{id}")
+    public ResponseEntity<Boolean> deleteContainer(@PathVariable("id")Long id){
+        return movimentacaoService.deleteMovimenticao(id);
     }
 
 }

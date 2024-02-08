@@ -18,7 +18,9 @@ public class SecurityConfig {
             "/containerAPI/deleteContainer/",
             "/movimentacaoAPI/newMovimentacao",
             "/movimentacaoAPI/listMovimentacao/",
-            "/movimentacaoAPI/listNewMovimentacao/"
+            "/movimentacaoAPI/listNewMovimentacao/",
+            "/movimentacaoAPI/editMovimentacao",
+            "/movimentacaoAPI/deleteMovimentacao/"
     };
 
 

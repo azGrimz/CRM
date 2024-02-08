@@ -14,7 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 import { LoginComponent } from '../components/login/login.component';
@@ -50,6 +50,7 @@ import { AdicionarComponent } from '../components/modal-movimentacao/adicionar.c
     MatDialogModule,
     MatTableModule,
     MatSidenavModule,
+    MatExpansionModule
   ],
   providers:[
     HttpClientModule

@@ -1,11 +1,13 @@
+import { Movimentacao } from './../../models/Container';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ViewChild } from '@angular/core';
 import { MovimentacaoService } from '../../services/movimentacao/movimentacao.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Movimentacao } from '../../models/Movimentacao';
 import { Observable, catchError, of } from 'rxjs';
 import { Container } from '../../models/Container';
+import { error } from 'console';
+import { MatAccordion } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-adicionar',
@@ -14,20 +16,27 @@ import { Container } from '../../models/Container';
 })
 export class AdicionarComponent {
   form: FormGroup;
+  formEdit: FormGroup;
+
+
   public container: number;
   movimentacao$: Observable<Movimentacao[]> = new Observable<any>
   container$!: Observable<Movimentacao[]>
-  displayedColumns = ['container','tipo','dataInicio','dataFim','actions'];
+  displayedColumns = ['tipo','dataInicio','dataFim','actions'];
 
-dataMov:any
+
 
   constructor(private FormBuilder: FormBuilder,
     private serviceMovimentacao: MovimentacaoService,
     private snackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data: any){
       this.container = data.id;
+      const movimentacaoData = this.getMovimentaacos();
 
-    console.log(data)
+
+
+
+    //RETORNA O FORMULARIO VÁZIO PARA SER PREENCHIDO
     this.form = this.FormBuilder.group({
       tipo:['',Validators.required],
       dataInicio:['',Validators.required],
@@ -35,9 +44,17 @@ dataMov:any
       container:[data.id,Validators.required]
     });
 
+    //RETORNA OS FORMULARIOS PREENCHIDOS
+    this.formEdit = this.FormBuilder.group({
+      tipo:['',Validators.required],
+      dataInicio:['',Validators.required],
+      dataFim:['',Validators.required],
+      container:['',Validators.required]
+    });
+
 
   this.getMovimentaacos();
-
+    console.log(movimentacaoData)
   }
 
 
@@ -47,17 +64,20 @@ dataMov:any
  }
 
 
-//getMovimentacao(){
-// this.serviceMovimentacao.list(this.container).subscribe((response:any) =>{
-//   this.container$ = response.data;
-//   console.log(response.data )
-// })
-//}
 
   onSubmit(){
    this.serviceMovimentacao.saveMovimentacao(this.form.value)
    .subscribe(result => this.onSucess(),error => this.onError());
   }
+
+
+  onUpdateMovimentacao(){
+    this.serviceMovimentacao.editMovimentcao(this.formEdit.value)
+    .subscribe(result => this.onSucess(),error => this.onError())
+  }
+
+
+
 
   private onError(){
     this.snackBar.open('Erro ao salvar curso','',{duration:5000});
