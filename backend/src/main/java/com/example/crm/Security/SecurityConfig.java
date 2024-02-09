@@ -20,7 +20,8 @@ public class SecurityConfig {
             "/movimentacaoAPI/listMovimentacao/",
             "/movimentacaoAPI/listNewMovimentacao/",
             "/movimentacaoAPI/editMovimentacao",
-            "/movimentacaoAPI/deleteMovimentacao/"
+            "/movimentacaoAPI/deleteMovimentacao/",
+            "/movimentacaoAPI/listContainerMovimentacaos/"
     };
 
 

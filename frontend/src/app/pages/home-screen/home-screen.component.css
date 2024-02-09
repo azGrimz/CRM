@@ -27,3 +27,10 @@ table{
   right: 10px;
 
 }
+
+.mat-expansion-panel {
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}
+

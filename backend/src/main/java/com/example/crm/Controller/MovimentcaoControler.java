@@ -35,7 +35,10 @@ public class MovimentcaoControler {
             return movimentacaoRepository.getMovimentacaoByContainerId(id);
         }
 
-
+        @GetMapping("/listContainerMovimentacaos/{id}")
+            public Container listMovi(@PathVariable Long id){
+            return containerRepository.findById(id).get();
+    }
     @PostMapping("/newMovimentacao")
     @ResponseStatus(code = HttpStatus.CREATED)
     public Movimentacao create(@RequestBody MovimentacaoDTO movimentacaoDTO){
